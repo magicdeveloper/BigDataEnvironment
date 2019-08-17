@@ -3,24 +3,9 @@
 Run all necessary containers:
 
 `` `bash
-make up
+docker network create hadoop-net 
 `` `
-If run successfully, the terminal will return output:
-
-`` `bash
-docker network create spark-net
-9386f8b306cd221ddb3b111301d621d17245b9410ba0bc3e56476be733d1e762
-docker-compose up -d
-Creating phpldapadmin ... done
-Creating namenode ... done
-Creating openldap ... done
-Creating hue ... done
-Creating datanode ... done
-Creating spark-master ... done
-Creating zeppelin ... done
-Creating spark-worker ... done
-`` `
-
+create network name: hadoop-net in docker
 Stop all running contianers:
 
 `` `
