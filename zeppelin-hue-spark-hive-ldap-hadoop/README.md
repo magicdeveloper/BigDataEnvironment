@@ -6,6 +6,7 @@ Run all necessary containers:
 docker network create hadoop-net 
 `` `
 create network name: hadoop-net in docker
+
 Stop all running contianers:
 
 `` `
