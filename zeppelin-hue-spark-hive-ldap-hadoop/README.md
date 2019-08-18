@@ -19,7 +19,7 @@
 | hadoop-NameNode | http://localhost:9870 |
 | hadoop-DataNode | http://localhost:9864 |
 | hadoop-resourcemanager | http://localhost:8088 |
-| hadoop-historyserver | http://localhost:10000|
+| hadoop-historyserver | http://localhost:8188|
 | spark-master | http://localhost:5480 |
 | zeppelin | http://localhost:5780 |
 | Hue | http://localhost:8888 |
