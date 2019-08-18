@@ -1,0 +1,23 @@
+﻿
+docker network create mynet
+docker exec openldap ldapsearch -x -H ldap://localhost -b dc=example,dc=org -D "cn=admin,dc=example,dc=org" -w admin
+Login DN:
+cn=admin,dc=example,dc=org
+Password:
+admin
+-----------------------------------------------------------------
+add user
+https://simp.readthedocs.io/en/master/user_guide/User_Management/LDAP.html
+-------------------------------------------------------------------
+ref: Hive , Hue
+http://www.zytrax.com/books/ldap/
+https://mapr.com/docs/61/Hive/HiveServer2-LDAPAuthUsingOpenLDAP.html
+https://mapr.com/docs/61/Hue/ConfigureLDAPAuth-HueAndHive.html
+https://mapr.com/docs/61/Hue/ConfigureHuewithLDAP.html
+https://github.com/osixia/docker-openldap/issues/196
+https://serverfault.com/questions/790108/what-is-the-difference-between-an-rdn-a-dn-and-a-cn-in-ldap
+-------------------------------------------------------------
+ref: zeppelin
+https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.1.0/configuring-zeppelin-security/content/configure_zeppelin_for_authentication__ldap_and_active_directory.html
+https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.1.0/configuring-zeppelin-security/content/configuring_authentication_for_production_using_ldap.html
+https://www.cloudera.com/documentation/enterprise/5-14-x/topics/hue_sec_ldap_auth.html

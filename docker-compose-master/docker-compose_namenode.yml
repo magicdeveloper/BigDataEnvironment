@@ -1,0 +1,49 @@
+version: "3"
+
+services:
+  namenode:
+    image: nvtienanh/hadoop-namenode:${HADOOP_TAG}
+    hostname: namenode
+    container_name: namenode
+    volumes:
+      - C:\D\volumes\hadoop-net\data\namenode:/hadoop/dfs/name
+      - C:\D\volumes\hadoop-net\share:/share
+      # - ./data/namenode:/hadoop/dfs/name
+    environment:
+      - CLUSTER_NAME=test
+    env_file:
+      - ./hadoop-hive.env
+    ports:
+      - "9870:9870"
+    networks:
+      - hadoop-net
+  datanode:
+    image: nvtienanh/hadoop-datanode:${HADOOP_TAG}
+    hostname: datanode
+    container_name: datanode
+    volumes:
+      - C:\D\volumes\hadoop-net\data\datanode:/hadoop/dfs/data
+      - C:\D\volumes\hadoop-net\share:/share
+      #- ./data/datanode:/hadoop/dfs/data
+
+    env_file:
+      - ./hadoop-hive.env
+    environment:
+      SERVICE_PRECONDITION: "namenode:9870"
+    ports:
+      - "9864:9864"
+    depends_on:
+      - namenode
+    healthcheck:
+      interval: 10s
+      retries: 100 
+    networks:
+      - hadoop-net
+ 
+volumes:
+  data:
+
+networks:
+  hadoop-net:
+    external:
+      name: hadoop-net

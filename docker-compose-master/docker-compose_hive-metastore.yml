@@ -1,0 +1,29 @@
+version: "3"
+
+services:
+  hive-metastore:
+    #image: mdt/hive:2.3.4-hadoop3.2.0
+    image: nvtienanh/hive:${HIVE_TAG}
+    hostname: hive-metastore
+    container_name: hive-metastore
+    env_file:
+      - ./hadoop-hive.env
+    command: /opt/hive/bin/hive --service metastore
+    environment:
+      SERVICE_PRECONDITION: "namenode:9870 datanode:9864 hive-metastore-postgresql:5432"
+    volumes:
+      - C:\D\volumes\hadoop-net\share:/share
+    ports:
+      - "9083:9083"
+ 
+    networks:
+      - hadoop-net
+ 
+
+volumes:
+  data:
+
+networks:
+  hadoop-net:
+    external:
+      name: hadoop-net
