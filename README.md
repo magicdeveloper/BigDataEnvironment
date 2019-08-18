@@ -1,6 +1,5 @@
 # MDT BigData Environment
-Big Data Environment
-created by
+Big Data Environment created by
 
 Amer Milhem <amer.milhem100@gmail.com>
 
