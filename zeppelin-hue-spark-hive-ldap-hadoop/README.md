@@ -16,7 +16,7 @@
 
 # Description
 
- `docker network create hadoop-net`  create network name: hadoop-net in docker
+ `docker network create hadoop-net`  create network name: hadoop-net
 - `docker-compose -f docker-compose_ldap.yml up` create two contianers:
 	 1. **openldap** from image: osixia/openldap:1.2.5 
 	 2. **ldap-admin** from image: osixia/phpldapadmin:latest
