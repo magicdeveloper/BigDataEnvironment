@@ -1,9 +1,0 @@
-2019/07/26-03:05:52.965778 7f6617928700 Recovering log #3
-2019/07/26-03:05:52.967245 7f6617928700 Level-0 table #5: started
-2019/07/26-03:05:52.977389 7f6617928700 Level-0 table #5: 262 bytes OK
-2019/07/26-03:05:52.982412 7f6617928700 MANIFEST write: IO error: /hadoop/yarn/timeline/leveldb-timeline-store.ldb: Invalid argument
-2019/07/26-03:05:52.982425 7f6617928700 ManifestContains: checking /hadoop/yarn/timeline/leveldb-timeline-store.ldb/MANIFEST-000004
-2019/07/26-03:05:52.983690 7f6617928700 ManifestContains: result = 1
-2019/07/26-03:05:52.983702 7f6617928700 MANIFEST contains log record despite error; advancing to new version to prevent mismatch between in-memory and logged state
-2019/07/26-03:05:53.017129 7f6617928700 Delete type=0 #3
-2019/07/26-03:05:53.017749 7f6617928700 Delete type=3 #2
