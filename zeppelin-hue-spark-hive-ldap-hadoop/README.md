@@ -12,11 +12,21 @@
     docker-compose -f docker-compose_hive-server.yml up
     docker-compose -f docker-compose_spark.yaml up
     docker-compose -f docker-compose_hue.yml up
-    
+### Application links
+| APP | URL|
+| ------ | ------ |
+| ldap-admin| http://localhost:6080 |
+| hadoop-NameNode | http://localhost:9870 |
+| hadoop-DataNode | http://localhost:9864 |
+| hadoop-resourcemanager | http://localhost:8088 |
+| hadoop-historyserver | http://localhost:10000|
+| spark-master | http://localhost:5480 |
+| zeppelin | http://localhost:5780 |
+| Hue | http://localhost:8888 |
 
 # Description
 
- `docker network create hadoop-net`  create network name: hadoop-net
+ `docker network create hadoop-net`  create network name: hadoop-net in docker
 - `docker-compose -f docker-compose_ldap.yml up` create two contianers:
 	 1. **openldap** from image: osixia/openldap:1.2.5 
 	 2. **ldap-admin** from image: osixia/phpldapadmin:latest
