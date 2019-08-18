@@ -7,6 +7,7 @@ Issam Aljaluodi <issam.aljaluodi@outlook.com>
 
 Mohamed Abdelgalil Ali Elghannam <magic_developer@hotmail.com>
 
+
 ### Run all necessary code:
 
     docker network create hadoop-net
@@ -58,8 +59,12 @@ Mohamed Abdelgalil Ali Elghannam <magic_developer@hotmail.com>
 	 4. **zeppelin** from image: nvtienanh/zeppelin
 - `docker-compose -f docker-compose_hue.yml up` create one contianer:
 	 1. **hue** from image: nvtienanh/hue 
+#### openldap
+to test ldap contianer use this
 
-### Create user login to LDAP Admin
+    docker exec ldap ldapsearch -x -H ldap://localhost -b dc=example,dc=org -D "cn=admin,dc=example,dc=org" -w admin
+
+#### Create user login to LDAP Admin
 
 Access the LDAP Admin webui url:  http://localhost:6080
 
