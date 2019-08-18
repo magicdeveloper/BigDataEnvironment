@@ -5,7 +5,6 @@
     docker network create hadoop-net
     docker-compose -f docker-compose_ldap.yml up
     docker-compose -f docker-compose_postgresql.yaml up
-    docker-compose_postgresql.yaml strat up
     docker-compose -f docker-compose_namenode.yml up
     docker-compose -f docker-compose_resourcemanager.yml up
     docker-compose -f docker-compose_historyserver.yml up
