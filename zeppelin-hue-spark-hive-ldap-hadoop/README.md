@@ -1,70 +1,38 @@
 # Use
-
 Run all necessary containers:
-
-`` `
-docker network create hadoop-net 
-`` `
-create network name: hadoop-net in docker
-
-`` `
-docker-compose -f docker-compose_ldap.yml up
-`` `
-create two contianers:
-  1 openldap from image: osixia/openldap:1.2.5 
-  2 ldap-admin from image: osixia/phpldapadmin:latest
-
-
-`` `bash
-docker network create hadoop-net 
-`` `
-create network name: hadoop-net in docker
-
-
-`` `bash
-docker network create hadoop-net 
-`` `
-create network name: hadoop-net in docker
-
-
-Stop all running contianers:
-
-`` `
-make down
-`` `
-Then the terminal will return:
-
-`` `bash
-docker-compose down
-Stopping spark-worker ... done
-Stopping zeppelin ... done
-Stopping spark-master ... done
-Stopping datanode ... done
-Stopping hue ... done
-Stopping namenode ... done
-Stopping openldap ... done
-Stopping phpldapadmin ... done
-Removing spark-worker ... done
-Removing zeppelin ... done
-Removing spark-master ... done
-Removing datanode ... done
-Removing hue ... done
-Removing namenode ... done
-Removing openldap ... done
-Removing phpldapadmin ... done
-Network spark-net is external, skipping
-docker network rm spark-net
-spark-net
-`` `
-
+- `` docker network create hadoop-net `` create network name: hadoop-net in docker
+- ``docker-compose -f docker-compose_ldap.yml up`` create two contianers:
+	 1. **openldap** from image: osixia/openldap:1.2.5 
+	 2. **ldap-admin** from image: osixia/phpldapadmin:latest
+- ``docker-compose -f docker-compose_postgresql.yaml up`` create two contianers:
+	 1. **hive-metastore-postgresql** from image: mdt/metastore:9.6-hive2.3.4 
+	 2. **postgresql-database** from image: mdt/postgresql:9.6
+- ``docker-compose -f docker-compose_namenode.yml up`` create two contianers:
+	 1. **namenode** from image: nvtienanh/hadoop-namenode 
+	 2. **datanode1** from image: nvtienanh/hadoop-datanode
+- ``docker-compose -f docker-compose_resourcemanager.yml up`` create one contianer:
+	 1. **resourcemanager** from image: nvtienanh/hadoop-resourcemanager 
+- ``docker-compose -f docker-compose_historyserver.yml up`` create one contianer:
+	 1. **historyserver** from image: nvtienanh/hadoop-historyserver 
+- ``docker-compose -f docker-compose_hive-metastore.yml up`` create one contianer:
+	 1. **hive-metastore** from image: nvtienanh/hive
+- ``docker-compose -f docker-compose_hive-server.yml up`` create one contianer:
+	 1. **hive-server** from image: nvtienanh/hive
+- ``docker-compose -f docker-compose_spark.yaml up`` create four contianers:
+	 1. **spark-master** from image: nvtienanh/spark-master
+	 2. **spark-worker1** from image: nvtienanh/spark-worker
+	 3. **spark-worker2** from image: nvtienanh/spark-worker
+	 4. **zeppelin** from image: nvtienanh/zeppelin
+- ``docker-compose -f docker-compose_hue.yml up`` create one contianer:
+	 1. **hue** from image: nvtienanh/hue 
 ## Create user login to LDAP Admin
 
-Access the LDAP Admin webui url: https: // localhost: 6443
+Access the LDAP Admin webui url:  http://localhost:6080
 
 Log in with the addmin user information:
 
- * User: cn = admin, dc = example, dc = org
- * Password: admin
+ * User: cn = admin, dc = example, dc = org
+ * Password: admin
 
 After logging in, create user Hue:
 
@@ -93,12 +61,17 @@ objectClass: groupOfNames
 cn: hue
 member: uid = nvtienanh, dc = example, dc = org
 `` `
-
+## hadoop-resourcemanager
+Go to http://localhost:8088
+## hadoop-historyserver
+Go to http://localhost:8188
+## hadoop-NameNode
+Go to http://localhost:9870
+## hadoop-DataNode
+Go to http://localhost:9864
+## spark-master
+Go to http://localhost:5480
 ## Log in to Hue
-
-Go to http: // localhost: 8888 with account information created with LDAP Admin
-
-
+Go to http://localhost:8888 with account information created with LDAP Admin
 ## Log in to Zeppelin
-
-http: // localhost: 8080 with account information created with LDAP Admin
+Go to http://localhost:5780 with account information created with LDAP Admin
