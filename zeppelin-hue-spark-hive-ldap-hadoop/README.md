@@ -1,6 +1,23 @@
 # Use
-Run all necessary containers:
-- `docker network create hadoop-net`  create network name: hadoop-net in docker
+
+### Run all necessary code:
+
+    docker network create hadoop-net
+    docker-compose -f docker-compose_ldap.yml up
+    docker-compose -f docker-compose_postgresql.yaml up
+    docker-compose_postgresql.yaml strat up
+    docker-compose -f docker-compose_namenode.yml up
+    docker-compose -f docker-compose_resourcemanager.yml up
+    docker-compose -f docker-compose_historyserver.yml up
+    docker-compose -f docker-compose_hive-metastore.yml up
+    docker-compose -f docker-compose_hive-server.yml up
+    docker-compose -f docker-compose_spark.yaml up
+    docker-compose -f docker-compose_hue.yml up
+    
+
+# Description
+
+ `docker network create hadoop-net`  create network name: hadoop-net in docker
 - `docker-compose -f docker-compose_ldap.yml up` create two contianers:
 	 1. **openldap** from image: osixia/openldap:1.2.5 
 	 2. **ldap-admin** from image: osixia/phpldapadmin:latest
@@ -25,7 +42,8 @@ Run all necessary containers:
 	 4. **zeppelin** from image: nvtienanh/zeppelin
 - `docker-compose -f docker-compose_hue.yml up` create one contianer:
 	 1. **hue** from image: nvtienanh/hue 
-## Create user login to LDAP Admin
+
+### Create user login to LDAP Admin
 
 Access the LDAP Admin webui url:  http://localhost:6080
 
@@ -61,17 +79,17 @@ objectClass: groupOfNames
 cn: hue
 member: uid = nvtienanh, dc = example, dc = org
 `
-## hadoop-resourcemanager
+#### hadoop-resourcemanager
 Go to http://localhost:8088
-## hadoop-historyserver
+#### hadoop-historyserver
 Go to http://localhost:8188
-## hadoop-NameNode
+#### hadoop-NameNode
 Go to http://localhost:9870
-## hadoop-DataNode
+#### hadoop-DataNode
 Go to http://localhost:9864
-## spark-master
+#### spark-master
 Go to http://localhost:5480
-## Log in to Hue
+#### Log in to Hue
 Go to http://localhost:8888 with account information created with LDAP Admin
-## Log in to Zeppelin
+#### Log in to Zeppelin
 Go to http://localhost:5780 with account information created with LDAP Admin
