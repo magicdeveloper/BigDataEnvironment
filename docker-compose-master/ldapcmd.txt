@@ -1,6 +1,6 @@
 ﻿
 docker network create mynet
-docker exec openldap ldapsearch -x -H ldap://localhost -b dc=example,dc=org -D "cn=admin,dc=example,dc=org" -w admin
+docker exec ldap ldapsearch -x -H ldap://localhost -b dc=example,dc=org -D "cn=admin,dc=example,dc=org" -w admin
 Login DN:
 cn=admin,dc=example,dc=org
 Password:
