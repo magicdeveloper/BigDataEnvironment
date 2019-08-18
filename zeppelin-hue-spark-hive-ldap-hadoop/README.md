@@ -1,4 +1,7 @@
 # Use
+Amer Milhem <amer.milhem100@gmail.com>
+Issam Aljaluodi <issam.aljaluodi@outlook.com>
+Mohamed Abdelgalil Elghannam <magic_developer@hotmail.com>
 
 ### Run all necessary code:
 
