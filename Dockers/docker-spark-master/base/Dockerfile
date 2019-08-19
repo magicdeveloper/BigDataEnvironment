@@ -80,7 +80,7 @@ ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /usr/
 RUN chmod +x /usr/bin/tini
 RUN conda config --add channels conda-forge
 RUN python --version
-RUN conda install maven
+#RUN conda install maven
 RUN conda update -n base -c defaults conda
 RUN conda install -y numpy matplotlib pyspark py4j pandas  scipy scikit-learn networkx bokeh statsmodels
 # Install Geopandas (v 0.3.0) --> bundled with click, click-plugins, cligj, curl, descartes, expat, fiona, freexl, gdal, geos, hdf4, hdf5, kealib, krb5, libiconv, libnetcdf, libpq, libspatialindex, libspatialite, libtiff, libxml2, munch, openjpeg, pcre, proj4, psycopg2, pyproj, pysal, rtree, shapely, sqlalchemy, xerces-c
@@ -102,11 +102,6 @@ RUN pip install dash-html-components==0.8.0  # HTML components
 RUN pip install dash-core-components==0.14.0  # Supercharged components
 RUN pip install plotly --upgrade  # Plotly graphing library
 
-
-
-
-
-
 RUN conda install -c conda-forge tensorflow 
 #------------------------------------------------------------------
 RUN pip3 install  tensorflowonspark
@@ -125,15 +120,11 @@ RUN pip3 install  tensorflowonspark
 #Give permission to execute scripts
 #-------------------------------------------------------------------------------
 
-#-------------------------------------------------------------------------------
 RUN chmod +x /wait-for-step.sh && chmod +x /execute-step.sh && chmod +x /finish-step.sh
 
 # Fix the value of PYTHONHASHSEED
 # Note: this is needed when you use Python 3.3 or greater
 ENV PYTHONHASHSEED 123
-
-
-
 
 COPY hive-site.xml /spark/conf/
 COPY spark-env.sh /spark/conf/
