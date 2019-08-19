@@ -3,6 +3,8 @@ docker-compose -f docker-compose_ldap.yml up
 update-rc.d postgresql enable
 
 docker exec -u 0 -it hive-metastore-postgresql bash  
+docker exec -u 0 -it ldap bash  
+
 docker-entrypoint-initdb.d
 
 docker exec -u 0 -it hive-metastore-postgresql psql metastore hue
