@@ -2,7 +2,7 @@ version: "3"
 
 services:
   hue:
-    image: nvtienanh/hue:${HUE_TAG}
+    image: mdt/hue:${HUE_TAG}
     hostname: hue
     container_name: hue
     networks:
@@ -18,7 +18,7 @@ services:
       - C:\D\volumes\hadoop-net\share:/share
       # - ./pseudo-distributed.ini:/usr/share/hue/desktop/conf/z-hue.ini
   namenode:
-    image: nvtienanh/hadoop-namenode:${HADOOP_TAG}
+    image: mdt/hadoop-namenode:${HADOOP_TAG}
     hostname: namenode
     container_name: namenode
     volumes:
@@ -34,7 +34,7 @@ services:
     networks:
       - hadoop-net
   datanode:
-    image: nvtienanh/hadoop-datanode:${HADOOP_TAG}
+    image: mdt/hadoop-datanode:${HADOOP_TAG}
     hostname: datanode
     container_name: datanode
     volumes:
@@ -56,7 +56,7 @@ services:
     networks:
       - hadoop-net
   historyserver:
-    image: nvtienanh/hadoop-historyserver:${HADOOP_TAG}
+    image: mdt/hadoop-historyserver:${HADOOP_TAG}
     hostname: historyserver
     container_name: historyserver
     environment:
@@ -76,7 +76,7 @@ services:
     networks:
       - hadoop-net
   resourcemanager:
-    image: nvtienanh/hadoop-resourcemanager:${HADOOP_TAG}
+    image: mdt/hadoop-resourcemanager:${HADOOP_TAG}
     hostname: resourcemanager
     container_name: resourcemanager
     environment:
@@ -95,7 +95,7 @@ services:
     networks:
       - hadoop-net
   hive-server:
-    image: nvtienanh/hive:${HIVE_TAG}
+    image: mdt/hive:${HIVE_TAG}
     hostname: hive-server
     container_name: hive-server
     env_file:
@@ -116,7 +116,7 @@ services:
     networks:
       - hadoop-net
   hive-metastore:
-    image: nvtienanh/hive:${HIVE_TAG}
+    image: mdt/hive:${HIVE_TAG}
     hostname: hive-metastore
     container_name: hive-metastore
     env_file:
@@ -136,7 +136,7 @@ services:
     networks:
       - hadoop-net
   hive-metastore-postgresql:
-    image: nvtienanh/metastore:${METASTORE_TAG}
+    image: mdt/metastore:${METASTORE_TAG}
     hostname: hive-metastore-postgresql
     container_name: hive-metastore-postgresql
     volumes:
@@ -144,7 +144,7 @@ services:
     networks:
       - hadoop-net
   postgresql-database:
-    image: nvtienanh/postgresql:${POSTGRESQL_TAG}
+    image: mdt/postgresql:${POSTGRESQL_TAG}
     hostname: postgresql-database
     container_name: postgresql-database
     volumes:
@@ -183,7 +183,7 @@ services:
     networks:
       - hadoop-net
   spark-master:
-    image: nvtienanh/spark-master:${SPARK_TAG}
+    image: mdt/spark-master:${SPARK_TAG}
     container_name: spark-master
     ports:
       - "7077:7077"
@@ -200,7 +200,7 @@ services:
     networks:
       - hadoop-net
   spark-worker:
-    image: nvtienanh/spark-worker:${SPARK_TAG}
+    image: mdt/spark-worker:${SPARK_TAG}
     container_name: spark-worker
     env_file:
       - ./hadoop-hive.env
@@ -214,7 +214,7 @@ services:
     networks:
       - hadoop-net
   zeppelin:
-    image: nvtienanh/zeppelin:${ZEPPELIN_TAG}
+    image: mdt/zeppelin:${ZEPPELIN_TAG}
     container_name: zeppelin
     ports:
       - 8080:8080

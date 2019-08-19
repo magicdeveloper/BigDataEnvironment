@@ -2,7 +2,7 @@ version: "3"
 
 services:
   historyserver:
-    image: nvtienanh/hadoop-historyserver:${HADOOP_TAG}
+    image: mdt/hadoop-historyserver:${HADOOP_TAG}
     hostname: historyserver
     container_name: historyserver
     environment:

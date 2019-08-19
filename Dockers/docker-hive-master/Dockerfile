@@ -1,7 +1,7 @@
 ARG HADOOP_BASE=3.2.0-debian
-FROM nvtienanh/hadoop-base:${HADOOP_BASE}
+FROM mdt/hadoop-base:${HADOOP_BASE}
 
-LABEL MAINTAINER = "Anh Nguyen <nvtienanh@gmail.com>" 
+LABEL MAINTAINER = "moahmed ghname <engmghnam@gmail.com>" 
 
 # Allow buildtime config of HIVE_VERSION
 ARG HIVE_VERSION

@@ -1,6 +1,6 @@
 FROM debian:9
 
-LABEL maintainer = "Anh Nguyen <nvtienanh@gmail.com>"
+LABEL maintainer = "moahmed ghname <engmghnam@gmail.com>"
 
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
       openjdk-8-jdk \

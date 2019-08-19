@@ -3,7 +3,7 @@ version: "3"
 services:
 
   hue:
-    image: nvtienanh/hue:${HUE_TAG}
+    image: mdt/hue:${HUE_TAG}
     hostname: hue
     container_name: hue
     environment:

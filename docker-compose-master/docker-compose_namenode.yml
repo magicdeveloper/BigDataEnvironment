@@ -2,7 +2,7 @@ version: "3"
 
 services:
   namenode:
-    image: nvtienanh/hadoop-namenode:${HADOOP_TAG}
+    image: mdt/hadoop-namenode:${HADOOP_TAG}
     hostname: namenode
     container_name: namenode
     volumes:
@@ -18,7 +18,7 @@ services:
     networks:
       - hadoop-net
   datanode:
-    image: nvtienanh/hadoop-datanode:${HADOOP_TAG}
+    image: mdt/hadoop-datanode:${HADOOP_TAG}
     hostname: datanode
     container_name: datanode
     volumes:

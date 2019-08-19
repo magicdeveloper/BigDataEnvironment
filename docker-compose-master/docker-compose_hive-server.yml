@@ -3,7 +3,7 @@ version: "3"
 services:
 
   hive-server:
-    image: nvtienanh/hive:${HIVE_TAG}
+    image: mdt/hive:${HIVE_TAG}
     hostname: hive-server
     container_name: hive-server
     env_file:

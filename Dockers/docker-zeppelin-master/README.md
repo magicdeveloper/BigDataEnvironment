@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/nvtienanh/docker-zeppelin.svg?branch=master)](https://travis-ci.org/nvtienanh/docker-zeppelin)
+[![Build Status](https://travis-ci.org/mdt/docker-zeppelin.svg?branch=master)](https://travis-ci.org/mdt/docker-zeppelin)
 
 # Docker Zeppelin
 

@@ -1,7 +1,7 @@
 ARG SPARK_BASE=2.4.3-hadoop3.2.0
-FROM nvtienanh/spark-base:${SPARK_BASE}
+FROM mdt/spark-base:${SPARK_BASE}
 
-LABEL MAINTAINER = "Anh Nguyen <nvtienanh@gmail.com>" 
+LABEL MAINTAINER = "moahmed ghname <engmghnam@gmail.com>" 
 
 ENV APACHE_SPARK_VERSION 2.4.3
 ENV APACHE_HADOOP_VERSION 3.2.0

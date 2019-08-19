@@ -2,7 +2,7 @@ version: "2.1"
 
 services:
   namenode:
-    image: nvtienanh/hadoop-namenode:${HADOOP_TAG}
+    image: mdt/hadoop-namenode:${HADOOP_TAG}
     container_name: namenode
     volumes:
       - ./data/namenode:/hadoop/dfs/name
@@ -15,7 +15,7 @@ services:
     networks:
       - spark-net
   datanode:
-    image: nvtienanh/hadoop-datanode:${HADOOP_TAG}
+    image: mdt/hadoop-datanode:${HADOOP_TAG}
     container_name: datanode
     volumes:
       - ./data/datanode:/hadoop/dfs/data
@@ -30,7 +30,7 @@ services:
     networks:
       - spark-net
   spark-master:
-    image: nvtienanh/spark-master:${SPARK_TAG}
+    image: mdt/spark-master:${SPARK_TAG}
     container_name: spark-master
     ports:
       - "8080:8080"
@@ -48,7 +48,7 @@ services:
     networks:
       - spark-net
   spark-worker:
-    image: nvtienanh/spark-worker:${SPARK_TAG}
+    image: mdt/spark-worker:${SPARK_TAG}
     environment:
       - "SPARK_MASTER=spark://spark-master:7077"
     environment:
@@ -62,7 +62,7 @@ services:
     networks:
       - spark-net
   zeppelin:
-    image: nvtienanh/zeppelin:${ZEPPELIN_TAG}
+    image: mdt/zeppelin:${ZEPPELIN_TAG}
     ports:
       - 80:8080
     volumes:

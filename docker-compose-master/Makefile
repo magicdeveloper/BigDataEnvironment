@@ -37,7 +37,7 @@ down:
 	# rm -rf notebook
 
 push:
-	docker push nvtienanh/zeppelin:$(ZEPPELIN_TAG)
+	docker push mdt/zeppelin:$(ZEPPELIN_TAG)
 
 Start-Process powershell -Verb runAs
 Start-Process  cd C:\D\Docker\docker-compose-master\zeppelin-hue-hive-ldap-hadoop

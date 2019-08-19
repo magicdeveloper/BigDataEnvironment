@@ -11,7 +11,7 @@ bash:
 	docker exec -it docker-zeppelin_zeppelin_1 bash
 
 build:
-	docker build -t nvtienanh/zeppelin:$(ZEPPELIN_TAG) ./zeppelin/.
+	docker build -t mdt/zeppelin:$(ZEPPELIN_TAG) ./zeppelin/.
 
 push:
-	docker push nvtienanh/zeppelin:$(ZEPPELIN_TAG)
+	docker push mdt/zeppelin:$(ZEPPELIN_TAG)

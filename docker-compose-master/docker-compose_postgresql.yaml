@@ -2,7 +2,7 @@ version: "3"
 
 services:
   hive-metastore-postgresql:
-    image: mdt/metastore:9.6-hive2.3.4
+    image: mdt/metastore:${METASTORE_TAG}
     hostname: hive-metastore-postgresql
     container_name: hive-metastore-postgresql
     volumes:
@@ -15,7 +15,7 @@ services:
     networks:
       - hadoop-net
   postgresql-database:
-    image: mdt/postgresql:9.6
+    image: mdt/postgresql:${POSTGRESQL_TAG}
     hostname: postgresql-database
     container_name: postgresql-database
     volumes:

@@ -1,6 +1,6 @@
 ARG HADOOP_BASE=3.2.0-debian
-FROM nvtienanh/hadoop-base:${HADOOP_BASE}
-LABEL MAINTAINER = "Anh Nguyen <nvtienanh@gmail.com>" 
+FROM mdt/hadoop-base:${HADOOP_BASE}
+LABEL MAINTAINER = "moahmed ghname <engmghnam@gmail.com>" 
 
 HEALTHCHECK CMD curl -f http://localhost:8188/ || exit 1
 

@@ -1,5 +1,5 @@
 ARG HADOOP_BASE=3.2.0-debian
-FROM nvtienanh/hadoop-base:${HADOOP_BASE}
+FROM mdt/hadoop-base:${HADOOP_BASE}
 
 LABEL maintainer = "mohamed ghname <engghname@gmail.com>"
 
@@ -109,7 +109,7 @@ RUN pip install plotly --upgrade  # Plotly graphing library
 
 RUN conda install -c conda-forge tensorflow 
 #------------------------------------------------------------------
-RUN pip3 install tensorflow tensorflowonspark
+RUN pip3 install  tensorflowonspark
 #RUN git clone https://github.com/tensorflow/ecosystem.git
 #RUN cd ecosystem/hadoop
 #RUN mvn clean install -DskipTests

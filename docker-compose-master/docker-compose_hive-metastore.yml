@@ -2,8 +2,7 @@ version: "3"
 
 services:
   hive-metastore:
-    #image: mdt/hive:2.3.4-hadoop3.2.0
-    image: nvtienanh/hive:${HIVE_TAG}
+    image: mdt/hive:${HIVE_TAG}
     hostname: hive-metastore
     container_name: hive-metastore
     env_file:

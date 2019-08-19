@@ -42,23 +42,23 @@ Mohamed Abdelgalil Ali Elghannam <magic_developer@hotmail.com>
 	 1. **hive-metastore-postgresql** from image: mdt/metastore:9.6-hive2.3.4 
 	 2. **postgresql-database** from image: mdt/postgresql:9.6
 - `docker-compose -f docker-compose_namenode.yml up` create two contianers:
-	 1. **namenode** from image: nvtienanh/hadoop-namenode 
-	 2. **datanode1** from image: nvtienanh/hadoop-datanode
+	 1. **namenode** from image: mdt/hadoop-namenode 
+	 2. **datanode1** from image: mdt/hadoop-datanode
 - `docker-compose -f docker-compose_resourcemanager.yml up` create one contianer:
-	 1. **resourcemanager** from image: nvtienanh/hadoop-resourcemanager 
+	 1. **resourcemanager** from image: mdt/hadoop-resourcemanager 
 - `docker-compose -f docker-compose_historyserver.yml up` create one contianer:
-	 1. **historyserver** from image: nvtienanh/hadoop-historyserver 
+	 1. **historyserver** from image: mdt/hadoop-historyserver 
 - `docker-compose -f docker-compose_hive-metastore.yml up` create one contianer:
-	 1. **hive-metastore** from image: nvtienanh/hive
+	 1. **hive-metastore** from image: mdt/hive
 - `docker-compose -f docker-compose_hive-server.yml up` create one contianer:
-	 1. **hive-server** from image: nvtienanh/hive
+	 1. **hive-server** from image: mdt/hive
 - `docker-compose -f docker-compose_spark.yaml up` create four contianers:
-	 1. **spark-master** from image: nvtienanh/spark-master
-	 2. **spark-worker1** from image: nvtienanh/spark-worker
-	 3. **spark-worker2** from image: nvtienanh/spark-worker
-	 4. **zeppelin** from image: nvtienanh/zeppelin
+	 1. **spark-master** from image: mdt/spark-master
+	 2. **spark-worker1** from image: mdt/spark-worker
+	 3. **spark-worker2** from image: mdt/spark-worker
+	 4. **zeppelin** from image: mdt/zeppelin
 - `docker-compose -f docker-compose_hue.yml up` create one contianer:
-	 1. **hue** from image: nvtienanh/hue 
+	 1. **hue** from image: mdt/hue 
 #### openldap
 to test ldap contianer use this
 

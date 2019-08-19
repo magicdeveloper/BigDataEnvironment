@@ -2,7 +2,7 @@ version: "3"
 
 services:
   resourcemanager:
-    image: nvtienanh/hadoop-resourcemanager:${HADOOP_TAG}
+    image: mdt/hadoop-resourcemanager:${HADOOP_TAG}
     hostname: resourcemanager
     container_name: resourcemanager
     environment:
