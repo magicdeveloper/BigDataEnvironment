@@ -218,11 +218,9 @@ services:
     volumes:    
       - C:\D\volumes\hadoop-net\zeppelin\notebook:/opt/zeppelin/notebook
       - C:\D\volumes\hadoop-net\share:/share
-      #- ./notebook:/opt/zeppelin/notebook
+      - ./shiro.ini:/opt/zeppelin/conf/shiro.ini
     env_file:
       - ./hadoop-hive.env
-    volumes:
-      - ./shiro.ini:/opt/zeppelin/conf/shiro.ini
     depends_on:
       - spark-master
       - spark-worker
