@@ -1,0 +1,82 @@
+{
+  "paragraphs": [
+    {
+      "text": "%pyspark\nfrom spark.sql import functions as F",
+      "user": "anonymous",
+      "dateUpdated": "2019-05-09 07:15:31.025",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "editorHide": false,
+        "tableHide": true,
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Fail to execute line 1: from spark.sql import functions as F\nTraceback (most recent call last):\n  File \"/tmp/zeppelin_pyspark-6710976247800163203.py\", line 380, in \u003cmodule\u003e\n    exec(code, _zcUserQueryNameSpace)\n  File \"\u003cstdin\u003e\", line 1, in \u003cmodule\u003e\nModuleNotFoundError: No module named \u0027spark\u0027\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1494446151737_1359394047",
+      "id": "20170510-195551_400594820",
+      "dateCreated": "2017-05-10 19:55:51.000",
+      "dateStarted": "2019-05-09 07:15:31.054",
+      "dateFinished": "2019-05-09 07:15:31.072",
+      "status": "ERROR",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "",
+      "user": "anonymous",
+      "dateUpdated": "2017-05-11 08:49:13.000",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala",
+        "tableHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1494446793336_527866307",
+      "id": "20170510-200633_2002902352",
+      "dateCreated": "2017-05-10 20:06:33.000",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "SparkPi",
+  "id": "2CF34ERK6",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {
+    "spark:shared_process": []
+  },
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}

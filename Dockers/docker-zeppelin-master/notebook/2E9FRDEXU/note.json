@@ -1,0 +1,70 @@
+{
+  "paragraphs": [
+    {
+      "text": "%pyspark\nfrom pyspark.sql import functions as F\nprint(\u0027Done!\u0027)",
+      "user": "anonymous",
+      "dateUpdated": "2019-05-09 07:18:04.897",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Done!\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1557386144218_-1651049211",
+      "id": "20190509-071544_58819631",
+      "dateCreated": "2019-05-09 07:15:44.218",
+      "dateStarted": "2019-05-09 07:18:04.922",
+      "dateFinished": "2019-05-09 07:18:04.945",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n",
+      "user": "anonymous",
+      "dateUpdated": "2019-05-09 07:16:04.400",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1557386164399_1065687294",
+      "id": "20190509-071604_563869563",
+      "dateCreated": "2019-05-09 07:16:04.399",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "test",
+  "id": "2E9FRDEXU",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {
+    "spark:shared_process": []
+  },
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}
