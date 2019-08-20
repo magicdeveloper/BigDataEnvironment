@@ -3,20 +3,6 @@ FROM mdt/hadoop-base:${HADOOP_BASE}
 
 LABEL maintainer = "mohamed ghname <engghname@gmail.com>"
 
- 
-#WORKDIR /home/
-
-#RUN apt-get update && apt-get install -y curl vim wget software-properties-common ssh net-tools wamerican wamerican-insane wbrazilian wdutch wbritish-large
-#RUN apt-get install -y python3 python3-pip python3-numpy python3-matplotlib python3-scipy python3-pandas python3-simpy
- 
-#RUN update-alternatives --install "/usr/bin/python" "python" "$(which python3)" 1
- 
-#COPY downloads/* /home/
-
-#---------------------------------------------------------------------------------------
-
-#-----------------------------------------------------------------------
-
 ENV ENABLE_INIT_DAEMON true
 ENV INIT_DAEMON_BASE_URI http://identifier/init-daemon
 ENV INIT_DAEMON_STEP spark_master_init
@@ -51,7 +37,7 @@ RUN apt-get-install -y curl wget \
 ENV SPARK_HOME /spark/
 
 #RUN apt-get-install -y python3 python3-setuptools python3-pip python3-numpy python3-matplotlib python3-scipy python3-pandas python3-simpy
-
+#ENV PATH /opt/conda/bin:$PATH
 ENV PATH /opt/conda/bin:/opt/conda/lib/python3.5/site-packages:$PATH
 ENV PYSPARK_PYTHON /opt/conda/bin/python
 ENV PYSPARK_DRIVER_PYTHON /opt/conda/bin/python
@@ -69,11 +55,7 @@ RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86
     echo ". /opt/conda/etc/profile.d/conda.sh" >> ~/.bashrc && \
     echo "conda activate base" >> ~/.bashrc
 #---------------------------------------------------------
-#ENV PATH /opt/conda/bin:$PATH
-#ENV PYSPARK_PYTHON /opt/conda/bin/python
-#ENV PYSPARK_DRIVER_PYTHON /opt/conda/bin/python
-ENV PYTHONPATH /opt/conda/bin/python
-#---------------------------------------------------------
+
 RUN python --version
 ENV TINI_VERSION v0.18.0
 ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /usr/bin/tini
@@ -104,19 +86,8 @@ RUN pip install plotly --upgrade  # Plotly graphing library
 
 RUN conda install -c conda-forge tensorflow 
 #------------------------------------------------------------------
-RUN pip3 install  tensorflowonspark
-#RUN git clone https://github.com/tensorflow/ecosystem.git
-#RUN cd ecosystem/hadoop
-#RUN mvn clean install -DskipTests
-#RUN cd ../spark/spark-tensorflow-connector
-#RUN mvn clean install -DskipTests
+RUN pip install  tensorflowonspark
 
-
-
-
-#-------------------------------------------------------------------------------
-
-#RUN pip install tensorflow tensorflowonspark
 #Give permission to execute scripts
 #-------------------------------------------------------------------------------
 
