@@ -1,4 +1,4 @@
-cd C:\D\Docker\BigDataEnvironment\BigDataEnvironment\docker-compose-master
+cd C:\D\Docker\docker-compose-master\zeppelin-hue-hive-ldap-hadoop
 cls
 docker rm -f $(docker ps -a -q)
 Write-Host "Start my script"
@@ -16,7 +16,7 @@ Start-Sleep -Second 25
 Write-Host "-------------------------------------------------------------------------------"
 docker ps
 Write-Host "-------------------------------------------------------------------------------"
-$urls = @("http://localhost:6080","http://localhost:9870","http://localhost:9864")
+$urls = @("http://localhost:6083","http://localhost:9870","http://localhost:9864")
 
 foreach($url in $urls){
     Start-Process $url

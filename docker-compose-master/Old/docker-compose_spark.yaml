@@ -2,7 +2,7 @@ version: "3"
 
 services:
   spark-master:
-    image: mdt/spark-master:${SPARK_TAG}
+    image: nvtienanh/spark-master:${SPARK_TAG}
     container_name: spark-master
     ports:
       - "5480:8080"
@@ -17,7 +17,7 @@ services:
     networks:
       - hadoop-net
   spark-worker1:
-    image: mdt/spark-worker:${SPARK_TAG}
+    image: nvtienanh/spark-worker:${SPARK_TAG}
     container_name: spark-worker1
     env_file:
       - ./hadoop-hive.env
@@ -31,7 +31,7 @@ services:
     networks:
       - hadoop-net
   spark-worker2:
-    image: mdt/spark-worker:${SPARK_TAG}
+    image: nvtienanh/spark-worker:${SPARK_TAG}
     container_name: spark-worker2
     env_file:
       - ./hadoop-hive.env
@@ -46,18 +46,18 @@ services:
       - hadoop-net
  
   zeppelin:
-    image: mdt/zeppelin:${ZEPPELIN_TAG}
+    image: nvtienanh/zeppelin:${ZEPPELIN_TAG}
     container_name: zeppelin
     ports:
       - 5780:8080
     volumes:    
       - C:\D\volumes\hadoop-net\zeppelin\notebook:/opt/zeppelin/notebook
       - C:\D\volumes\hadoop-net\share:/share
-      - ./shiro.ini:/opt/zeppelin/conf/shiro.ini
       #- ./notebook:/opt/zeppelin/notebook
     env_file:
       - ./hadoop-hive.env
-      
+    volumes:
+      - ./shiro.ini:/opt/zeppelin/conf/shiro.ini
     depends_on:
       - spark-master
       - spark-worker1

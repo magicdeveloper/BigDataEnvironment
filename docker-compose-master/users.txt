@@ -1,0 +1,54 @@
+dn: uid=hue,dc=example,dc=org
+cn: ServiceAccount
+ou: People
+displayname: hue
+givenname: Firstname
+mail: hue@example.org
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+sn: Lastname
+uid: hue
+userpassword: hue
+---------------------------------------
+dn: uid=hiveadmin,dc=example,dc=org
+cn: ServiceAccount
+ou: People
+displayname: hiveadmin
+givenname: Firstname
+mail: hiveadmin@example.org
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+sn: Lastname
+uid: hiveadmin
+userpassword: hiveadmin
+---------------------------------------
+dn: cn=hue,dc=example,dc=org
+objectClass: top
+objectClass: groupOfNames
+cn: hue
+member: uid=hue,dc=example,dc=org
+-----------------------------------------------
+-----------------------------------------------
+dn: uid=nvtienanh,dc=example,dc=org
+cn: ServiceAccount
+ou: People
+displayname: Test Bela
+givenname: Firstname
+mail: nvtienanh@example.org
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+sn: Lastname
+uid: nvtienanh
+userpassword: 12345
+---------------------------------------
+dn: cn=hue,dc=example,dc=org
+objectClass: top
+objectClass: groupOfNames
+cn: hue
+member: uid=nvtienanh,dc=example,dc=org

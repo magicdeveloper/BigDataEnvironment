@@ -1,0 +1,43 @@
+ pg_ctl -D /var/lib/postgresql/data -l logfile start
+docker-compose -f docker-compose_ldap.yml up
+update-rc.d postgresql enable
+
+docker exec -u 0 -it hive-metastore-postgresql bash  
+docker-entrypoint-initdb.d
+
+docker exec -u 0 -it hive-metastore-postgresql psql metastore hue
+psql metastore hue
+select * from "VERSION" ;
+Exception in thread "main" java.lang.RuntimeException file:/opt/hive/conf/hive-site.xml 
+
+ Exception in thread "main" java.lang.RuntimeException: com.ctc.wstx.exc.WstxParsingException: 
+Illegal to have multiple roots hive-metastore at [row,col,system-id]: [27,2,"file:/opt/hive/conf/hive-site.xml"]
+
+uid=admin,ou=people,dc=example,dc=org
+
+
+[desktop]
+[[ldap]]
+[[[ldap_servers]]]
+[[[[AD1.TEST.COM]]]]
+ldap_url=ldap://ldap:389
+search_bind_authentication=true
+create_users_on_login=true
+#base_dn="cn=users,dc=ad1,dc=test,dc=com"
+base_dn="dc=example,dc=org"
+bind_dn="cn=admin,dc=example,dc=org"
+#bind_dn="cn=Administrator,cn=users,dc=ad1,dc=test,dc=com"
+bind_password="admin"
+----------------------
+    command: --loglevel debug
+-------------------------
+  ldap-admin:
+    image: osixia/phpldapadmin:latest
+    container_name: ldapadmin
+    ports:
+      - "6080:80"
+    environment:
+      - PHPLDAPADMIN_LDAP_HOSTS=ldap
+      - PHPLDAPADMIN_HTTPS=false
+    networks:
+      hadoop-net:

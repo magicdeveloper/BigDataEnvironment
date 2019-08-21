@@ -2,7 +2,7 @@ version: "3"
 
 services:
   namenode:
-    image: mdt/hadoop-namenode:${HADOOP_TAG}
+    image: nvtienanh/hadoop-namenode:${HADOOP_TAG}
     volumes:
       - namenode:/hadoop/dfs/name
     environment:
@@ -12,7 +12,7 @@ services:
     ports:
       - "9870:9870"
   datanode:
-    image: mdt/hadoop-datanode:${HADOOP_TAG}
+    image: nvtienanh/hadoop-datanode:${HADOOP_TAG}
     volumes:
       - datanode:/hadoop/dfs/data
     env_file:
@@ -22,7 +22,7 @@ services:
     ports:
       - "9864:9864"
   hive-server:
-    image: mdt/hive:${HIVE_TAG}
+    image: nvtienanh/hive:${HIVE_TAG}
     env_file:
       - ./hadoop-hive.env
     environment:
@@ -31,7 +31,7 @@ services:
     ports:
       - "10000:10000"
   hive-metastore:
-    image: mdt/hive:${HIVE_TAG}
+    image: nvtienanh/hive:${HIVE_TAG}
     env_file:
       - ./hadoop-hive.env
     command: /opt/hive/bin/hive --service metastore
@@ -40,7 +40,7 @@ services:
     ports:
       - "9083:9083"
   hive-metastore-postgresql:
-    image: mdt/postgresql:${POSTGRESQL_TAG}
+    image: nvtienanh/postgresql:${POSTGRESQL_TAG}
   presto-coordinator:
     image: shawnzhu/prestodb:0.181
     ports:
