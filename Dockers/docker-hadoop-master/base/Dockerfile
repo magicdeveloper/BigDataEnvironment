@@ -3,7 +3,7 @@ FROM debian:9
 LABEL maintainer = "moahmed ghname <engmghnam@gmail.com>"
 
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
-       apt-utils\
+      apt-utils\
       openjdk-8-jdk \
       net-tools \
       curl \

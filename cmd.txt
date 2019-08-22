@@ -1,3 +1,19 @@
+docker images					#List all images
+docker build -t imageName ./dockerLocation	#Bulid new image from dockerfile
+docker pull imageName/ImageTag			#exec  downaload image from hup
+docker run -it --rm imageName/ImageTag		#exec  Create container from image and start it
+docker exec -it containerID bash		#exec  container in comand line
+docker ps --format '{{.ID}}   {{.Names}}'	#list running containers with two col [ID , Names]
+docker ps -a --format '{{.ID}}   {{.Names}}'	#list all containers with two col [ID , Names]
+docker stop containerID				#stop container
+docker rmi -f ImageID				#remove Image
+docker rm -f containerID			#remove containers
+docker rmi -f $(docker images -q) 		#remove all images 
+docker rm -f $(docker ps -a -q)	    		#remove all containers
+docker-compose up				#Start group of containers from compose file
+docker-compose -f docker-compose_V03.yml up	#Start group of containers from compose file
+docker-compose -f docker-compose_V03.yml down	#Stop group of containers from compose file
+
 dn: uid = mohamed, dc = example, dc = org cn: ServiceAccount ou: People displayname: mohamed ghname givenname: Firstname mail: mghname@example.org objectclass: top objectclass: person objectclass: organizationalPerson objectclass: inetOrgPerson sn: Lastname uid: mohamed userpassword: 12345
 dn: cn = hue, dc = example, dc = org objectClass: top objectClass: groupOfNames cn: hue member: uid = mohamed, dc = example, dc = org
 
