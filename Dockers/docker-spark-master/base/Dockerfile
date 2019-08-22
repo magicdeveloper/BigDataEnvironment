@@ -86,6 +86,7 @@ RUN conda install -y numpy matplotlib pyspark py4j pandas  scipy scikit-learn ne
 
 #RUN conda install -c conda-forge tensorflow 
 #------------------------------------------------------------------
+RUN python --version
 RUN pip install tensorflow 
 RUN pip install tensorflowonspark
 #Give permission to execute scripts
