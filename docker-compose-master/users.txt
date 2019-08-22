@@ -31,6 +31,7 @@ objectClass: top
 objectClass: groupOfNames
 cn: hue
 member: uid=hue,dc=example,dc=org
+member: uid=hiveadmin,dc=example,dc=org
 -----------------------------------------------
 -----------------------------------------------
 dn: uid=nvtienanh,dc=example,dc=org
