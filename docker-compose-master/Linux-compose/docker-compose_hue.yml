@@ -1,0 +1,33 @@
+version: "3"
+
+services:
+
+  hue:
+    image: mdt/hue:${HUE_TAG}
+    hostname: hue
+    container_name: hue
+    environment:
+      - NAMENODE_HOST=namenode
+    env_file:
+      - ./hadoop-hive.env
+    ports:
+     - "8888:8888"
+    volumes:
+      - ./pseudo-distributed.ini:/usr/share/hue/desktop/conf/pseudo-distributed.ini
+      - /dockers/volumes/hadoop-net/share:/share
+      # - ./pseudo-distributed.ini:/usr/share/hue/desktop/conf/z-hue.ini
+    healthcheck:
+      interval: 10s
+      retries: 100 
+    networks:
+      - hadoop-net 
+ 
+
+
+volumes:
+  data:
+
+networks:
+  hadoop-net:
+    external:
+      name: hadoop-net

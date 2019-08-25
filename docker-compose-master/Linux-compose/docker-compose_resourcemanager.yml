@@ -1,0 +1,28 @@
+version: "3"
+
+services:
+  resourcemanager:
+    image: mdt/hadoop-resourcemanager:${HADOOP_TAG}
+    hostname: resourcemanager
+    container_name: resourcemanager
+    environment:
+      SERVICE_PRECONDITION: "namenode:9870 datanode:9864"
+    volumes:
+      - /dockers/volumes/hadoop-net/share:/share
+    ports:
+      - 8088:8088
+    env_file:
+      - ./hadoop-hive.env
+    healthcheck:
+      interval: 10s
+      retries: 100 
+    networks:
+      - hadoop-net
+ 
+volumes:
+  data:
+
+networks:
+  hadoop-net:
+    external:
+      name: hadoop-net

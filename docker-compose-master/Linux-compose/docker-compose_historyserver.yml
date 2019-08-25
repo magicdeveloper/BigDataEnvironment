@@ -1,0 +1,33 @@
+version: "3"
+
+services:
+  historyserver:
+    image: mdt/hadoop-historyserver:${HADOOP_TAG}
+    hostname: historyserver
+    container_name: historyserver
+    environment:
+      SERVICE_PRECONDITION: "namenode:9870 datanode:9864 resourcemanager:8088"
+    volumes:
+      
+      - /dockers/volumes/hadoop-net/hadoop_historyserver:/hadoop/yarn/timeline
+      - /dockers/volumes/hadoop-net/share:/share
+      #- ./data/hadoop_historyserver:/hadoop/yarn/timeline
+    env_file:
+      - ./hadoop-hive.env
+    ports:
+      - 8188:8188
+    healthcheck:
+      interval: 10s
+      retries: 100 
+    networks:
+      - hadoop-net
+ 
+
+
+volumes:
+  data:
+
+networks:
+  hadoop-net:
+    external:
+      name: hadoop-net

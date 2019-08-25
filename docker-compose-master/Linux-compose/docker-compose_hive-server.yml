@@ -1,0 +1,32 @@
+version: "3"
+
+services:
+
+  hive-server:
+    image: mdt/hive:${HIVE_TAG}
+    hostname: hive-server
+    container_name: hive-server
+    env_file:
+      - ./hadoop-hive.env
+    # command: /opt/hive/bin/hive --service hiveserver2
+    environment:
+      SERVICE_PRECONDITION: "hive-metastore:9083"
+      HIVE_CORE_CONF_javax_jdo_option_ConnectionURL: "jdbc:postgresql://hive-metastore/metastore"
+    volumes:
+      - /dockers/volumes/hadoop-net/share:/share
+    ports:
+      - "10000:10000"
+ 
+    healthcheck:
+      interval: 10s
+      retries: 100 
+    networks:
+      - hadoop-net
+ 
+volumes:
+  data:
+
+networks:
+  hadoop-net:
+    external:
+      name: hadoop-net

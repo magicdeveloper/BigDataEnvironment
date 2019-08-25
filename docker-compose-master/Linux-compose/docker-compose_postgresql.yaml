@@ -1,0 +1,35 @@
+version: "3"
+
+services:
+  hive-metastore-postgresql:
+    image: mdt/metastore:${METASTORE_TAG}
+    hostname: hive-metastore-postgresql
+    container_name: hive-metastore-postgresql
+    volumes:
+      - /dockers/volumes/hadoop-net/share:/share
+    depends_on:
+      - postgresql-database
+    healthcheck:
+      interval: 10s
+      retries: 100 
+    networks:
+      - hadoop-net
+  postgresql-database:
+    image: mdt/postgresql:${POSTGRESQL_TAG}
+    hostname: postgresql-database
+    container_name: postgresql-database
+    volumes:
+      - /dockers/volumes/hadoop-net/share:/share
+    healthcheck:
+      interval: 10s
+      retries: 100 
+    networks:
+      - hadoop-net
+  
+volumes:
+  data:
+
+networks:
+  hadoop-net:
+    external:
+      name: hadoop-net

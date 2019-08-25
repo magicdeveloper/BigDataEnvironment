@@ -1,0 +1,77 @@
+version: "3"
+
+services:
+  spark-master:
+    image: mdt/spark-master:${SPARK_TAG}
+    container_name: spark-master
+    ports:
+      - "5480:8080"
+      - "7077:7077"
+    env_file:
+      - ./hadoop-hive.env
+    volumes:
+      - /dockers/volumes/hadoop-net/share:/share
+    healthcheck:
+      interval: 5s
+      retries: 100 
+    networks:
+      - hadoop-net
+  spark-worker1:
+    image: mdt/spark-worker:${SPARK_TAG}
+    container_name: spark-worker1
+    env_file:
+      - ./hadoop-hive.env
+    volumes:
+      - /dockers/volumes/hadoop-net/share:/share
+    depends_on:
+      - spark-master
+    healthcheck:
+      interval: 5s
+      retries: 100 
+    networks:
+      - hadoop-net
+  spark-worker2:
+    image: mdt/spark-worker:${SPARK_TAG}
+    container_name: spark-worker2
+    env_file:
+      - ./hadoop-hive.env
+    volumes:
+      - /dockers/volumes/hadoop-net/share:/share
+    depends_on:
+      - spark-master
+    healthcheck:
+      interval: 5s
+      retries: 100 
+    networks:
+      - hadoop-net
+ 
+  zeppelin:
+    image: mdt/zeppelin:${ZEPPELIN_TAG}
+    container_name: zeppelin
+    ports:
+      - 5780:8080
+    volumes:    
+      - /dockers/volumes/hadoop-net/zeppelin/notebook:/opt/zeppelin/notebook
+      - /dockers/volumes/hadoop-net/share:/share
+      - ./shiro.ini:/opt/zeppelin/conf/shiro.ini
+      #- ./notebook:/opt/zeppelin/notebook
+    env_file:
+      - ./hadoop-hive.env
+      
+    depends_on:
+      - spark-master
+      - spark-worker1
+      - spark-worker2
+    healthcheck:
+      interval: 5s
+      retries: 100 
+    networks:
+      - hadoop-net
+ 
+volumes:
+  data:
+
+networks:
+  hadoop-net:
+    external:
+      name: hadoop-net

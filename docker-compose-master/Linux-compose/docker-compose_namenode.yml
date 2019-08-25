@@ -1,0 +1,49 @@
+version: "3"
+
+services:
+  namenode:
+    image: mdt/hadoop-namenode:${HADOOP_TAG}
+    hostname: namenode
+    container_name: namenode
+    volumes:
+      - /dockers/volumes/hadoop-net/data/namenode:/hadoop/dfs/name
+      - /dockers/volumes/hadoop-net/share:/share
+      # - ./data/namenode:/hadoop/dfs/name
+    environment:
+      - CLUSTER_NAME=test
+    env_file:
+      - ./hadoop-hive.env
+    ports:
+      - "9870:9870"
+    networks:
+      - hadoop-net
+  datanode:
+    image: mdt/hadoop-datanode:${HADOOP_TAG}
+    hostname: datanode
+    container_name: datanode
+    volumes:
+      - /dockers/volumes/hadoop-net/data/datanode:/hadoop/dfs/data
+      - /dockers/volumes/hadoop-net/share:/share
+      #- ./data/datanode:/hadoop/dfs/data
+
+    env_file:
+      - ./hadoop-hive.env
+    environment:
+      SERVICE_PRECONDITION: "namenode:9870"
+    ports:
+      - "9864:9864"
+    depends_on:
+      - namenode
+    healthcheck:
+      interval: 10s
+      retries: 100 
+    networks:
+      - hadoop-net
+ 
+volumes:
+  data:
+
+networks:
+  hadoop-net:
+    external:
+      name: hadoop-net
