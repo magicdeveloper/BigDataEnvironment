@@ -1,6 +1,4 @@
-https://my.contabo.com/
-
-## 5 steps to Connect to LXDE desktop environment via XRDP on Ubuntu 19.4
+# 5 steps to Connect to LXDE desktop environment via XRDP on Ubuntu 19.4
 
  
 #### 1- update OS && login with root user
@@ -49,3 +47,4 @@ echo lxsession -s LXDE -e LXDE > ~/.xsession
 sudo service xrdp restart
 
 >  end
+https://my.contabo.com/
