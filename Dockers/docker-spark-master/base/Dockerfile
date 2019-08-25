@@ -68,7 +68,7 @@ RUN python --version
 RUN conda install -y numpy matplotlib pyspark py4j pandas pandasql scipy scikit-learn networkx bokeh statsmodels seaborn 
 #RUN pip install -y  pandas-datareader  Keras tensorflow tensorflowonspark pydataset
 RUN conda install -y  pandas-datareader Keras tensorflow
-RUN pip install -y tensorflowonspark pydataset
+RUN pip install  tensorflowonspark pydataset
 
 # RUN pip install -y  tensorflow 
 
