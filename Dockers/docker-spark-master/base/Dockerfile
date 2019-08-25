@@ -61,12 +61,14 @@ ENV TINI_VERSION v0.18.0
 ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /usr/bin/tini
 RUN chmod +x /usr/bin/tini
 RUN conda config --add channels conda-forge
-#RUN conda update -n base -c defaults conda
+RUN conda update -n base -c defaults conda
 RUN python --version
 # #RUN conda install maven
 
 RUN conda install -y numpy matplotlib pyspark py4j pandas pandasql scipy scikit-learn networkx bokeh statsmodels seaborn 
-RUN pip install -y  pandas-datareader  Keras tensorflow tensorflowonspark pydataset
+#RUN pip install -y  pandas-datareader  Keras tensorflow tensorflowonspark pydataset
+RUN conda install -y  pandas-datareader Keras tensorflow
+RUN pip install -y tensorflowonspark pydataset
 
 # RUN pip install -y  tensorflow 
 
