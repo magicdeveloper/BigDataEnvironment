@@ -6,7 +6,7 @@
 #### Update the package database with the Docker packages from the newly added repo:
     sudo apt-get update
 #### Make sure you are about to install from the Docker repo instead of the default Ubuntu 19.04 repo:
-     pt-cache policy docker-ce
+     apt-cache policy docker-ce
 #### Finally, install Docker:
      sudo apt-get install -y docker-ce
 #### Check docker running:
