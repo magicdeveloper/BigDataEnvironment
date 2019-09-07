@@ -87,6 +87,7 @@ RUN conda install -y -c conda-forge cartopy
 RUN pip install geoplot
 RUN pip install  Cython
 RUN pip install  contextlib2
+RUN pip install requests
 # # Install osmnx (v 0.5.4) --> bundled with altair, bleach, branca, colorama, entrypoints, folium, geopy, html5lib, ipykernel, ipython, ipython_genutils, jedi, jsonschema, jupyter_client, jupyter_core, mistune, nbconvert, nbformat, notebook, pandoc, pandocfilters, pickleshare, prompt_toolkit, pygments, pyzmq, simplegeneric, testpath, traitlets, vega, vincent, wcwidth, webencodings
 RUN conda install -c conda-forge osmnx
 # # Install Folium (v 0.5.0) --> bundled with altair, vega
