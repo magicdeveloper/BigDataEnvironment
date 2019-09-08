@@ -64,34 +64,27 @@ RUN conda config --add channels conda-forge
 RUN conda update -n base -c defaults conda
 RUN python --version
 # #RUN conda install maven
-
-RUN conda install -y numpy matplotlib pyspark py4j pandas pandasql scipy scikit-learn networkx bokeh statsmodels seaborn 
-#RUN pip install -y  pandas-datareader  Keras tensorflow tensorflowonspark pydataset
-RUN conda install -y  pandas-datareader Keras tensorflow
-RUN conda install -y libhdfs3
-RUN conda install -y findspark -c conda-forge
-RUN conda install -y pyarrow -c conda-forge
-RUN conda install -y hdfs3 -c conda-forge
-RUN pip install scrapy
-#RUN pip install Pillow
-
-RUN pip install  tensorflowonspark pydataset
-
-# RUN pip install -y  tensorflow 
+#-------------------install python library-----------------------------------------------
+RUN conda install -y \
+    numpy matplotlib pyspark py4j pandas pandasql scipy scikit-learn \
+    networkx bokeh statsmodels seaborn libhdfs3 pandas-datareader \
+    Keras tensorflow
+ 
+RUN conda install -y -c conda-forge findspark pyarrow hdfs3
+ 
+RUN pip install PyHDFS hdfs scrapy tensorflowonspark pydataset
 
 # # Install Geopandas (v 0.3.0) --> bundled with click, click-plugins, cligj, curl, descartes, expat, fiona, freexl, gdal, geos, hdf4, hdf5, kealib, krb5, libiconv, libnetcdf, libpq, libspatialindex, libspatialite, libtiff, libxml2, munch, openjpeg, pcre, proj4, psycopg2, pyproj, pysal, rtree, shapely, sqlalchemy, xerces-c
-RUN conda install -y -c conda-forge geopandas
 # # Install cartopy (v 0.15.1) --> bundled with libxslt, lxml, olefile, owslib, pillow, pyepsg, pyshp
-RUN conda install -y -c conda-forge cartopy
+RUN conda install -y -c conda-forge geopandas cartopy
+
 # # Install geoplot (v 0.0.4) using pip (on Linux: be sure to use pip that comes with conda distribution!) --> bundled with seaborn
-RUN pip install geoplot
-RUN pip install  Cython
-RUN pip install  contextlib2
-RUN pip install requests
+RUN pip install geoplot Cython contextlib2 requests
+
 # # Install osmnx (v 0.5.4) --> bundled with altair, bleach, branca, colorama, entrypoints, folium, geopy, html5lib, ipykernel, ipython, ipython_genutils, jedi, jsonschema, jupyter_client, jupyter_core, mistune, nbconvert, nbformat, notebook, pandoc, pandocfilters, pickleshare, prompt_toolkit, pygments, pyzmq, simplegeneric, testpath, traitlets, vega, vincent, wcwidth, webencodings
-RUN conda install -c conda-forge osmnx
 # # Install Folium (v 0.5.0) --> bundled with altair, vega
-RUN conda install -c conda-forge folium
+RUN conda install -c conda-forge osmnx folium
+#RUN conda install -c conda-forge folium
 # # Install Dash using Pip
 RUN pip install dash==0.19.0  # The core dash backend
 RUN pip install dash-renderer==0.11.1  # The dash front-end
@@ -99,7 +92,15 @@ RUN pip install dash-html-components==0.8.0  # HTML components
 RUN pip install dash-core-components==0.14.0  # Supercharged components
 RUN pip install plotly --upgrade  # Plotly graphing library
 
-#RUN conda install -c conda-forge tensorflow 
+RUN pip install graphviz pydot  opencv-python
+
+#RUN pip install nltk
+#RUN conda install -c conda-forge nltk -y
+ 
+RUN conda install -c pytorch pytorch -y
+
+
+
 #------------------------------------------------------------------
 RUN python --version
 #RUN conda update
