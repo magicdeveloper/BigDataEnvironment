@@ -62,17 +62,23 @@ ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /usr/
 RUN chmod +x /usr/bin/tini
 RUN conda config --add channels conda-forge
 RUN conda update -n base -c defaults conda
+RUN conda update conda -c conda-canary
+RUN conda config --set channel_priority true
+RUN conda config --get channels
 RUN python --version
+RUN conda update --all
 # #RUN conda install maven
 #-------------------install python library-----------------------------------------------
 RUN conda install -y \
     numpy matplotlib pyspark py4j pandas pandasql scipy scikit-learn \
-    networkx bokeh statsmodels seaborn libhdfs3 pandas-datareader \
-    Keras tensorflow
+    networkx bokeh statsmodels seaborn  pandas-datareader \
+    Keras tensorflow h5py
  
-RUN conda install -y -c conda-forge findspark pyarrow hdfs3
- 
-RUN pip install PyHDFS hdfs scrapy tensorflowonspark pydataset
+RUN conda install -y -c conda-forge findspark hdfs3 libhdfs3 fastparquet 
+RUN conda install -y -c conda-forge tabulate xgboost hdf5 mlflow opencv pillow
+RUN conda install -y -c conda-forge pyarrow
+#
+RUN pip install PyHDFS hdfs scrapy tensorflowonspark pydataset dist-keras   
 
 # # Install Geopandas (v 0.3.0) --> bundled with click, click-plugins, cligj, curl, descartes, expat, fiona, freexl, gdal, geos, hdf4, hdf5, kealib, krb5, libiconv, libnetcdf, libpq, libspatialindex, libspatialite, libtiff, libxml2, munch, openjpeg, pcre, proj4, psycopg2, pyproj, pysal, rtree, shapely, sqlalchemy, xerces-c
 # # Install cartopy (v 0.15.1) --> bundled with libxslt, lxml, olefile, owslib, pillow, pyepsg, pyshp
@@ -83,7 +89,7 @@ RUN pip install geoplot Cython contextlib2 requests
 
 # # Install osmnx (v 0.5.4) --> bundled with altair, bleach, branca, colorama, entrypoints, folium, geopy, html5lib, ipykernel, ipython, ipython_genutils, jedi, jsonschema, jupyter_client, jupyter_core, mistune, nbconvert, nbformat, notebook, pandoc, pandocfilters, pickleshare, prompt_toolkit, pygments, pyzmq, simplegeneric, testpath, traitlets, vega, vincent, wcwidth, webencodings
 # # Install Folium (v 0.5.0) --> bundled with altair, vega
-RUN conda install -c conda-forge osmnx folium
+RUN conda install -y -c conda-forge osmnx folium
 #RUN conda install -c conda-forge folium
 # # Install Dash using Pip
 RUN pip install dash==0.19.0  # The core dash backend
@@ -92,15 +98,15 @@ RUN pip install dash-html-components==0.8.0  # HTML components
 RUN pip install dash-core-components==0.14.0  # Supercharged components
 RUN pip install plotly --upgrade  # Plotly graphing library
 
-RUN pip install graphviz pydot  opencv-python
+RUN pip install graphviz pydot  opencv-python d6tflow
 
 #RUN pip install nltk
-#RUN conda install -c conda-forge nltk -y
+RUN conda install -c conda-forge nltk -y
  
-RUN conda install -c pytorch pytorch -y
+#RUN conda install -c pytorch pytorch -y
 
-
-
+#RUN conda install -y -c conda-forge kaggle
+RUN conda update --all
 #------------------------------------------------------------------
 RUN python --version
 #RUN conda update

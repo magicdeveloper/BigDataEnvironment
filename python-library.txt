@@ -1,0 +1,37 @@
+﻿conda config --add channels conda-forge
+pip install pydot
+conda install -c anaconda pydot -y
+pip install graphviz
+conda install -c anaconda graphviz -y
+pip install nltk
+conda install -c conda-forge nltk -y
+pip install opencv-python
+conda install -c conda-forge opencv -y
+conda install -c pytorch pytorch -y
+pip install wagtail
+pip install opencv 
+conda install -c conda-forge wagtail -y
+#------------------------------------------------
+conda install -c conda-forge tabulate
+
+conda install -c conda-forge opencv
+#-------------------------------------------------
+sudo apt-get install python-opencv
+sudo apt-get install libpng-devel
+sudo apt-get install libjpeg-turbo-devel
+sudo apt-get install jasper-devel
+sudo apt-get install openexr-devel
+sudo apt-get install libtiff-devel
+sudo apt-get install libwebp-devel
+#------------------------------------------------
+wagtail start mysite
+cd mysite
+python manage.py migrate
+python manage.py createsuperuser
+python manage.py runserver
+#-----------------------------------------------
+https://wagtail.io/developers/
+http://docs.wagtail.io/en/v2.6.1/getting_started/index.html
+https://pythontips.com/2018/06/03/top-14-most-famous-python-libraries-frameworks/
+https://pythontips.com/2013/07/30/20-python-libraries-you-cant-live-without/
+  

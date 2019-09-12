@@ -32,6 +32,7 @@ services:
       SERVICE_PRECONDITION: "namenode:9870"
     ports:
       - "9864:9864"
+      - "8042:8042"
     depends_on:
       - namenode
     healthcheck:
@@ -40,6 +41,57 @@ services:
     networks:
       - hadoop-net
  
+  datanode2:
+    image: mdt/hadoop-datanode:${HADOOP_TAG}
+    hostname: datanode2
+    container_name: datanode2
+    volumes:
+      - C:\D\volumes\hadoop-net\data\datanode2:/hadoop/dfs/data
+      - C:\D\volumes\hadoop-net\share:/share
+      #- ./data/datanode:/hadoop/dfs/data
+
+    env_file:
+      - ./hadoop-hive.env
+    environment:
+      SERVICE_PRECONDITION: "namenode:9870"
+    ports:
+      - "9865:9864"
+      - "8043:8042"
+    depends_on:
+      - namenode
+    healthcheck:
+      interval: 10s
+      retries: 100 
+    networks:
+      - hadoop-net
+
+  datanode3:
+    image: mdt/hadoop-datanode:${HADOOP_TAG}
+    hostname: datanode3
+    container_name: datanode3
+    volumes:
+      - C:\D\volumes\hadoop-net\data\datanode3:/hadoop/dfs/data
+      - C:\D\volumes\hadoop-net\share:/share
+      #- ./data/datanode:/hadoop/dfs/data
+
+    env_file:
+      - ./hadoop-hive.env
+    environment:
+      SERVICE_PRECONDITION: "namenode:9870"
+    ports:
+      - "9866:9864"
+      - "8044:8042"
+    depends_on:
+      - namenode
+    healthcheck:
+      interval: 10s
+      retries: 100 
+    networks:
+      - hadoop-net
+ 
+
+
+
 volumes:
   data:
 

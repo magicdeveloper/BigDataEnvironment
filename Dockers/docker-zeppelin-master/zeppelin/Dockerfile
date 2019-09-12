@@ -25,3 +25,4 @@ RUN set -x \
 WORKDIR /opt/zeppelin
 
 CMD ["/opt/zeppelin/bin/zeppelin.sh"]
+RUN mkdir /opt/zeppelin/hdf5/hdf5

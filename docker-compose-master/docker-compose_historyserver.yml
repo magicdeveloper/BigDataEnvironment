@@ -6,7 +6,7 @@ services:
     hostname: historyserver
     container_name: historyserver
     environment:
-      SERVICE_PRECONDITION: "namenode:9870 datanode:9864 resourcemanager:8088"
+      SERVICE_PRECONDITION: "namenode:9870 datanode:9864 datanode2:9864 datanode3:9864 resourcemanager:8088"
     volumes:
       
       - C:\D\volumes\hadoop-net\hadoop_historyserver:/hadoop/yarn/timeline
