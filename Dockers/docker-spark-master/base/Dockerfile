@@ -77,6 +77,9 @@ RUN conda install -y \
 RUN conda install -y -c conda-forge findspark hdfs3 libhdfs3 fastparquet 
 RUN conda install -y -c conda-forge tabulate xgboost hdf5 mlflow opencv pillow
 RUN conda install -y -c conda-forge pyarrow
+RUN conda install -y -c conda-forge eli5 shap pdpbox
+RUN pip install librosa
+
 #
 RUN pip install PyHDFS hdfs scrapy tensorflowonspark pydataset dist-keras   
 
@@ -99,18 +102,30 @@ RUN pip install dash-core-components==0.14.0  # Supercharged components
 RUN pip install plotly --upgrade  # Plotly graphing library
 
 RUN pip install graphviz pydot  opencv-python d6tflow
-
+# for music and audio analysis.
+RUN pip install librosa
 #RUN pip install nltk
 RUN conda install -c conda-forge nltk -y
- 
+# install flask flask-restful
+RUN pip install flask
+RUN conda install -y -c conda-forge flask-restful
 #RUN conda install -c pytorch pytorch -y
 
+RUN pip install -e git+https://github.com/SohierDane/BigQuery_Helper#egg=bq_helper
+RUN pip install imageai
 #RUN conda install -y -c conda-forge kaggle
 RUN conda update --all
 #------------------------------------------------------------------
 RUN python --version
 #RUN conda update
 #Give permission to execute scripts
+#-------------------------------------------------------------------------------
+# https://github.com/bernhard-42/advanced-angular-for-pyspark/blob/master/notebooks/Advanced%20Angular%20for%20Pyspark.md
+# install advanced-angular-for-pyspark for angular session
+RUN git clone https://github.com/bernhard-42/advanced-angular-for-pyspark \
+    pip install ./advanced-angular-for-pyspark \
+    rm -rf advanced-angular-for-pyspark  
+
 #-------------------------------------------------------------------------------
 
 RUN chmod +x /wait-for-step.sh && chmod +x /execute-step.sh && chmod +x /finish-step.sh
