@@ -99,6 +99,7 @@ RUN pip install dash==0.19.0  # The core dash backend
 RUN pip install dash-renderer==0.11.1  # The dash front-end
 RUN pip install dash-html-components==0.8.0  # HTML components
 RUN pip install dash-core-components==0.14.0  # Supercharged components
+RUN pip install cufflinks --upgrade   # cufflinks for Plotly graphing library
 RUN pip install plotly --upgrade  # Plotly graphing library
 
 RUN pip install graphviz pydot  opencv-python d6tflow
@@ -113,6 +114,10 @@ RUN conda install -y -c conda-forge flask-restful
 
 RUN pip install -e git+https://github.com/SohierDane/BigQuery_Helper#egg=bq_helper
 RUN pip install imageai
+RUN pip install ipywidgets
+ 
+ 
+
 #RUN conda install -y -c conda-forge kaggle
 RUN conda update --all
 #------------------------------------------------------------------
@@ -122,8 +127,8 @@ RUN python --version
 #-------------------------------------------------------------------------------
 # https://github.com/bernhard-42/advanced-angular-for-pyspark/blob/master/notebooks/Advanced%20Angular%20for%20Pyspark.md
 # install advanced-angular-for-pyspark for angular session
-RUN git clone https://github.com/bernhard-42/advanced-angular-for-pyspark \
-    pip install ./advanced-angular-for-pyspark \
+RUN git clone https://github.com/bernhard-42/advanced-angular-for-pyspark  && \
+    pip install ./advanced-angular-for-pyspark  && \
     rm -rf advanced-angular-for-pyspark  
 
 #-------------------------------------------------------------------------------

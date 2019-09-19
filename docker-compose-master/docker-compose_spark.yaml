@@ -54,6 +54,7 @@ services:
       - C:\D\volumes\hadoop-net\zeppelin\notebook:/opt/zeppelin/notebook
       - C:\D\volumes\hadoop-net\share:/share
       - ./shiro.ini:/opt/zeppelin/conf/shiro.ini
+      #- /opt/zeppelin:/opt/zeppelin
       #- ./notebook:/opt/zeppelin/notebook
     env_file:
       - ./hadoop-hive.env

@@ -25,4 +25,14 @@ RUN set -x \
 WORKDIR /opt/zeppelin
 
 CMD ["/opt/zeppelin/bin/zeppelin.sh"]
-RUN mkdir /opt/zeppelin/hdf5/hdf5
+RUN mkdir /opt/zeppelin/work
+RUN mkdir /opt/zeppelin/work/projects
+RUN mkdir /opt/zeppelin/work/data
+RUN mkdir /opt/zeppelin/work/models
+RUN mkdir /opt/zeppelin/work/models/hdf5
+RUN mkdir /opt/zeppelin/work/data/hdf5
+RUN mkdir /opt/zeppelin/work/data/images
+RUN mkdir /opt/zeppelin/work/data/input
+RUN mkdir /opt/zeppelin/work/data/output
+RUN mkdir /opt/zeppelin/work/data/db
+RUN conda update --all
