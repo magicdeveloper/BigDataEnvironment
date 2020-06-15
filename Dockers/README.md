@@ -12,7 +12,6 @@
     docker build -t mdt/hadoop-datanode:3.2.0-debian ./docker-hadoop-master/datanode
     docker build -t mdt/hadoop-historyserver:3.2.0-debian ./docker-hadoop-master/historyserver
     docker build -t mdt/hadoop-resourcemanager:3.2.0-debian ./docker-hadoop-master/resourcemanager
-    docker build -t mdt/hadoop-historyserver:3.2.0-debian ./docker-hadoop-master/historyserver
     docker build -t mdt/hadoop-nodemanager:3.2.0-debian ./docker-hadoop-master/nodemanager
     docker build -t mdt/hadoop-submit:3.2.0-debian ./docker-hadoop-master/submit
 
@@ -22,14 +21,15 @@
 
 ### build spark cluster images
 
-    docker build -t mdt/spark-base:2.4.3-hadoop3.2.0 ./docker-spark-master/base
-    docker build -t mdt/spark-master:2.4.3-hadoop3.2.0 ./docker-spark-master/master
-    docker build -t mdt/spark-submit:2.4.3-hadoop3.2.0 ./docker-spark-master/submit
-    docker build -t mdt/spark-worker:2.4.3-hadoop3.2.0 ./docker-spark-master/worker
+    docker build -t mdt/spark-base:2.4.5-hadoop3.2.0 ./docker-spark-master/base
+    docker build -t mdt/spark-conda:2.4.5-hadoop3.2.0 ./docker-spark-master/conda
+    docker build -t mdt/spark-master:2.4.5-hadoop3.2.0 ./docker-spark-master/master
+    docker build -t mdt/spark-submit:2.4.5-hadoop3.2.0 ./docker-spark-master/submit
+    docker build -t mdt/spark-worker:2.4.5-hadoop3.2.0 ./docker-spark-master/worker
 
 ### build zeppelin image
 
-    docker build -t mdt/zeppelin:0.8.1 ./docker-zeppelin-master/zeppelin
+    docker build -t mdt/zeppelin:0.8.2 ./docker-zeppelin-master/zeppelin
 
 ### build hue image
 
